@@ -5,9 +5,8 @@ import plotly.express as px
 
 st.set_page_config(page_title="Employee Job Change Prediction",page_icon="🎓",layout="wide")
 
-# Load ML Model and Preprocessor
-model = joblib.load("logistic_regression_model.pkl")
-preprocessor = joblib.load("preprocessor.pkl")
+# Load ML Model
+model = joblib.load("final_model.pkl")
 
 st.markdown("""
 <style>
@@ -113,8 +112,6 @@ hr {
 
 st.sidebar.title("📌 Navigation")
 
-model = joblib.load("logistic_regression_model.pkl")
-preprocessor = joblib.load("preprocessor.pkl")
 df = pd.read_csv("aug_train.csv")
 
 # =========================
@@ -436,11 +433,9 @@ elif page == "🎯 Employee Prediction":
             "training_hours": [training_hours]
         })
 
-        input_transformed = preprocessor.transform(input_data)
+        prediction = model.predict(input_data)[0]
 
-        prediction = model.predict(input_transformed)[0]
-
-        probability = model.predict_proba(input_transformed)[0][1]
+        probability = model.predict_proba(input_data)[0][1]
 
         if prediction == 1:
             st.error(
