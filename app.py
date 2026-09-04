@@ -9,8 +9,6 @@ st.set_page_config(page_title="Employee Job Change Prediction",page_icon="🎓",
 model = joblib.load("logistic_regression_model.pkl")
 preprocessor = joblib.load("preprocessor.pkl")
 
-st.write(type(model))
-
 st.markdown("""
 <style>
 
