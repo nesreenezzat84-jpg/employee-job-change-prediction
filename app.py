@@ -9,6 +9,8 @@ st.set_page_config(page_title="Employee Job Change Prediction",page_icon="🎓",
 model = joblib.load("logistic_regression_model.pkl")
 preprocessor = joblib.load("preprocessor.pkl")
 
+st.write(type(model))
+
 st.markdown("""
 <style>
 
@@ -905,12 +907,12 @@ elif page == "🧠 Model Information":
     st.subheader("🏆 Best Performing Model")
 
     st.success(
-        "Random Forest achieved the highest accuracy among the tested models "
-        "with an accuracy of 78.7%."
+        "Logistics Regression achieved the highest accuracy among the tested models "
+        "with an F1 score of 62%."
     )
 
     st.write(
-    "Random Forest was selected because it achieved the highest test accuracy "
+    "Logistics Regression was selected because it achieved the highest F1 Score of 62%"
     "among the evaluated Machine Learning models."
     )
 
@@ -990,3 +992,5 @@ elif page == "🧠 Model Information":
         "achieved the highest accuracy and was therefore selected as the "
         "best-performing model among the tested algorithms."
     )
+
+
