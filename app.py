@@ -929,29 +929,27 @@ elif page == "🧠 Model Information":
 
     st.subheader("🏆 Best Performing Model")
 
-    st.success(
-        st.success(
+st.success(
     "Logistic Regression achieved the highest F1 score among the tested models "
     "with an F1 score of 62%."
 )
-    )
 
-    st.write(
-    "Logistics Regression was selected because it achieved the highest F1 Score of 62%"
+st.write(
+    "Logistic Regression was selected because it achieved the highest F1 Score of 62% "
     "among the evaluated Machine Learning models."
-    )
+)
 
-    st.markdown("---")
+st.markdown("---")
 
     # =========================
     # MODEL DETAILS
     # =========================
 
-    st.subheader("🧠 Models Used")
+st.subheader("🧠 Models Used")
 
-    col1, col2 = st.columns(2)
+col1, col2 = st.columns(2)
 
-    with col1:
+with col1:
 
         st.markdown("### 📈 Logistic Regression")
 
@@ -977,7 +975,7 @@ elif page == "🧠 Model Information":
             "72.3%"
         )
 
-    with col2:
+with col2:
 
         st.markdown("### 🌲 Random Forest")
 
@@ -1003,15 +1001,15 @@ elif page == "🧠 Model Information":
             "59.2%"
         )
 
-    st.markdown("---")
+st.markdown("---")
 
     # =========================
     # HR INTERPRETATION
     # =========================
 
-    st.subheader("💡 HR Interpretation")
+st.subheader("💡 HR Interpretation")
 
-    st.info(
+st.info(
         "The model comparison helps HR identify the algorithm that provides "
         "the strongest predictive performance. In this project, Random Forest "
         "achieved the highest accuracy and was therefore selected as the "
