@@ -839,37 +839,62 @@ elif page == "🧠 Model Information":
     st.subheader("📊 Model Performance Comparison")
 
     model_results = pd.DataFrame({
-        "Model": [
-            "Logistic Regression",
-            "Decision Tree",
-            "Random Forest",
-            "KNN"
-        ],
-        "Accuracy": [
-            77.3,
-            72.3,
-            78.7,
-            59.2
-        ]
-    })
+    "Model": [
+        "Logistic Regression",
+        "Decision Tree",
+        "Random Forest",
+        "KNN"
+    ],
+    "F1-Score": [
+        62.24,
+        47.12,
+        57.11,
+        55.25
+    ]
+})
 
     fig = px.bar(
-        model_results,
-        x="Model",
-        y="Accuracy",
-        text="Accuracy",
-        color="Model",
-        color_discrete_map={
-            "Logistic Regression": "#2563EB",
-            "Decision Tree": "#2563EB",
-            "Random Forest": "#EF4444",
-            "KNN": "#2563EB"
-        },
-        labels={
-            "Model": "Machine Learning Model",
-            "Accuracy": "Accuracy (%)"
-        }
-    )
+    model_results,
+    x="Model",
+    y="F1-Score",
+    text="F1-Score",
+    color="Model",
+    color_discrete_map={
+        "Logistic Regression": "#EF4444",
+        "Decision Tree": "#2563EB",
+        "Random Forest": "#2563EB",
+        "KNN": "#2563EB"
+    },
+    labels={
+        "Model": "Machine Learning Model",
+        "F1-Score": "F1-Score (%)"
+    }
+)
+
+    fig.update_traces(
+    texttemplate="%{text:.2f}%",
+    textposition="outside"
+)
+
+    fig.update_layout(
+    height=500,
+    plot_bgcolor="#0F172A",
+    paper_bgcolor="#0F172A",
+    font=dict(color="#F8FAFC"),
+    xaxis=dict(
+        gridcolor="#1E293B"
+    ),
+    yaxis=dict(
+        gridcolor="#1E293B",
+        range=[0, 100]
+    ),
+    showlegend=False
+)
+
+    st.plotly_chart(
+    fig,
+    use_container_width=True
+)
 
     fig.update_traces(
         texttemplate="%{text:.1f}%",
@@ -905,8 +930,10 @@ elif page == "🧠 Model Information":
     st.subheader("🏆 Best Performing Model")
 
     st.success(
-        "Logistics Regression achieved the highest accuracy among the tested models "
-        "with an F1 score of 62%."
+        st.success(
+    "Logistic Regression achieved the highest F1 score among the tested models "
+    "with an F1 score of 62%."
+)
     )
 
     st.write(
