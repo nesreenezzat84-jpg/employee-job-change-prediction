@@ -929,7 +929,7 @@ elif page == "🧠 Model Information":
 
     st.subheader("🏆 Best Performing Model")
 
-st.success(
+    st.success(
     "Logistic Regression achieved the highest F1 score among the tested models "
     "with an F1 score of 62%."
 )
