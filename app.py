@@ -872,31 +872,6 @@ elif page == "🧠 Model Information":
 )
 
     fig.update_traces(
-    texttemplate="%{text:.2f}%",
-    textposition="outside"
-)
-
-    fig.update_layout(
-    height=500,
-    plot_bgcolor="#0F172A",
-    paper_bgcolor="#0F172A",
-    font=dict(color="#F8FAFC"),
-    xaxis=dict(
-        gridcolor="#1E293B"
-    ),
-    yaxis=dict(
-        gridcolor="#1E293B",
-        range=[0, 100]
-    ),
-    showlegend=False
-)
-
-    st.plotly_chart(
-    fig,
-    use_container_width=True
-)
-
-    fig.update_traces(
         texttemplate="%{text:.1f}%",
         textposition="outside"
     )
@@ -1011,8 +986,8 @@ st.subheader("💡 HR Interpretation")
 
 st.info(
         "The model comparison helps HR identify the algorithm that provides "
-        "the strongest predictive performance. In this project, Random Forest "
-        "achieved the highest accuracy and was therefore selected as the "
+        "the strongest predictive performance. In this project, Logistic Regression "
+        "achieved the highest F1 score and was therefore selected as the "
         "best-performing model among the tested algorithms."
     )
 
